@@ -284,6 +284,7 @@ class CustomViewController extends AdminControllerTableBase
 
         if (config('exment.sort_custom_view_options', 0) > 0) {
             $form->number('order', exmtrans("custom_view.order"))->rules("integer")
+                ->addElementClass(['order', 'view_order'])
                 ->help(sprintf(exmtrans("custom_view.help.order")));
         }
 

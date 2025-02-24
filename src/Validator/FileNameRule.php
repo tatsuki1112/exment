@@ -36,6 +36,11 @@ class FileNameRule implements Rule
         }
     }
 
+    /**
+     * @param mixed $attribute
+     * @param mixed $value
+     * @return bool
+     */
     protected function validateFileName($attribute, $value)
     {
         // not check null or empty. Check by other required rule.

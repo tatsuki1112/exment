@@ -7,14 +7,24 @@ use Illuminate\Support\Facades\Storage;
 
 class TemplateDiskService extends DiskServiceBase
 {
+    /**
+     * @var string
+     */
     protected $now;
 
+    /**
+     * @param mixed ...$args
+     */
     public function __construct(...$args)
     {
         $this->now = date('YmdHis');
         $this->initDiskService(isset($args[0]) ? $args[0] : null);
     }
 
+    /**
+     * @param mixed $template_name
+     * @return void
+     */
     public function initDiskService($template_name)
     {
         $this->diskItem = new DiskServiceItem(Storage::disk(Define::DISKNAME_TEMPLATE_SYNC), $template_name, $template_name);

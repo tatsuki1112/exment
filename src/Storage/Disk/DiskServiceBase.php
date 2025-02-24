@@ -14,36 +14,50 @@ abstract class DiskServiceBase
     /**
      * default disk Item
      *
+     * @var mixed
      */
     protected $diskItem;
 
     /**
      * tmp disk Item
      *
+     * @var mixed
      */
     protected $tmpDiskItem;
 
     /**
      * tmp disk Item
      *
+     * @var mixed
      */
     protected $localSyncDiskItem;
 
     /**
      * Whether is this driver isNeedDownload
+     *
+     * @var null|mixed
      */
     public $isNeedDownload = null;
 
+    /**
+     * @return mixed
+     */
     public function diskItem()
     {
         return $this->diskItem;
     }
 
+    /**
+     * @return mixed
+     */
     public function tmpDiskItem()
     {
         return $this->tmpDiskItem;
     }
 
+    /**
+     * @return mixed
+     */
     public function localSyncDiskItem()
     {
         return $this->localSyncDiskItem;
@@ -51,7 +65,7 @@ abstract class DiskServiceBase
 
     /**
      * Upload to crowd disk
-     *
+     * @param mixed $file
      * @return void
      */
     public function upload($file)
@@ -114,7 +128,14 @@ abstract class DiskServiceBase
         return $this->sync();
     }
 
+    /**
+     * @return mixed
+     */
     abstract protected function isNeedDownload();
+
+    /**
+     * @return mixed
+     */
     abstract protected function isDeleteTmpAfterExecute();
 
     /**

@@ -12,6 +12,9 @@ use Exceedone\Exment\Model\CustomView;
  */
 class CustomValueRule implements Rule
 {
+    /**
+     * @var CustomTable|null
+     */
     protected $custom_table;
 
     /**
@@ -21,6 +24,10 @@ class CustomValueRule implements Rule
      */
     protected $custom_view;
 
+    /**
+     * @param mixed $custom_table
+     * @param mixed|null $custom_view
+     */
     public function __construct($custom_table, $custom_view = null)
     {
         $this->custom_table = CustomTable::getEloquent($custom_table);
@@ -59,6 +66,7 @@ class CustomValueRule implements Rule
 
     /**
      * HasData
+     * @param array<mixed> $values
      *
      * @return boolean
      */
@@ -81,6 +89,7 @@ class CustomValueRule implements Rule
 
     /**
      * Filter custom view
+     * @param array<mixed> $values
      *
      * @return boolean
      */

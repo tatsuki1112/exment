@@ -10,6 +10,9 @@ use Illuminate\Contracts\Validation\Rule;
  */
 class SelectValTextSettingRule implements Rule
 {
+    /**
+     * @var array<mixed>
+     */
     protected $errors = [];
     public function __construct()
     {

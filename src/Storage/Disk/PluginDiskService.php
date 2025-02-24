@@ -7,15 +7,28 @@ use Illuminate\Support\Facades\Storage;
 
 class PluginDiskService extends DiskServiceBase
 {
+    /**
+     * @var mixed
+     */
     protected $plugin;
+    /**
+     * @var string
+     */
     protected $now;
 
+    /**
+     * @param mixed ...$args
+     */
     public function __construct(...$args)
     {
         $this->now = date('YmdHis');
         $this->initDiskService(isset($args[0]) ? $args[0] : null);
     }
 
+    /**
+     * @param mixed $plugin
+     * @return void
+     */
     public function initDiskService($plugin)
     {
         $this->plugin = $plugin;
@@ -66,6 +79,9 @@ class PluginDiskService extends DiskServiceBase
         return false;
     }
 
+    /**
+     * @return false
+     */
     protected function isSetUpdatedAt()
     {
         return false;

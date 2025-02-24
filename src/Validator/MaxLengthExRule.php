@@ -10,8 +10,14 @@ use Illuminate\Contracts\Validation\Rule;
  */
 class MaxLengthExRule implements Rule
 {
+    /**
+     * @var mixed
+     */
     protected $max_length;
 
+    /**
+     * @param mixed $parameters
+     */
     public function __construct($parameters)
     {
         $this->max_length = $parameters;

@@ -12,8 +12,14 @@ class FileRule implements Rule
 {
     use ValidatesAttributes;
 
+    /**
+     * @var array<mixed>
+     */
     protected $extensions = [];
 
+    /**
+     * @param array<mixed> $extensions
+     */
     public function __construct(array $extensions = [])
     {
         $this->extensions = $extensions;
@@ -51,6 +57,11 @@ class FileRule implements Rule
         }
     }
 
+    /**
+     * @param mixed $attribute
+     * @param mixed $value
+     * @return mixed
+     */
     protected function validateExtension($attribute, $value)
     {
         if (is_string($value)) {

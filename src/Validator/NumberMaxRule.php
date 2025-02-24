@@ -10,8 +10,14 @@ use Illuminate\Contracts\Validation\Rule;
  */
 class NumberMaxRule implements Rule
 {
+    /**
+     * @var mixed
+     */
     protected $max;
 
+    /**
+     * @param mixed $parameters
+     */
     public function __construct($parameters)
     {
         $this->max = $parameters;

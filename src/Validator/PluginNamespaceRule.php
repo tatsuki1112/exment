@@ -11,6 +11,9 @@ use Exceedone\Exment\Storage\Disk\DiskServiceItem;
  */
 class PluginNamespaceRule implements Rule
 {
+    /**
+     * @var array<mixed>
+     */
     protected $errors = [];
 
     /**

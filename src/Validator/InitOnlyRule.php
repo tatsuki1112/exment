@@ -13,9 +13,20 @@ use Illuminate\Contracts\Validation\Rule;
  */
 class InitOnlyRule implements Rule
 {
+    /**
+     * @var CustomColumn
+     */
     protected $custom_column;
+
+    /**
+     * @var CustomValue|null
+     */
     protected $custom_value;
 
+    /**
+     * @param CustomColumn $custom_column
+     * @param CustomValue|null $custom_value
+     */
     public function __construct(CustomColumn $custom_column, ?CustomValue $custom_value)
     {
         $this->custom_column = $custom_column;
@@ -61,6 +72,9 @@ class InitOnlyRule implements Rule
         ]);
     }
 
+    /**
+     * @return mixed
+     */
     protected function getOriginalValue()
     {
         return array_get($this->custom_value->value, $this->custom_column->column_name);

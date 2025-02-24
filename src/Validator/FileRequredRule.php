@@ -12,10 +12,20 @@ use Illuminate\Contracts\Validation\ImplicitRule;
  */
 class FileRequredRule implements ImplicitRule
 {
+    /**
+     * @var CustomColumn
+     */
     protected $custom_column;
 
+    /**
+     * @var CustomValue|null
+     */
     protected $custom_value;
 
+    /**
+     * @param CustomColumn $custom_column
+     * @param CustomValue|null $custom_value
+     */
     public function __construct(CustomColumn $custom_column, ?CustomValue $custom_value)
     {
         $this->custom_column = $custom_column;

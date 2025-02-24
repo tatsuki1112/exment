@@ -12,9 +12,18 @@ use Exceedone\Exment\Model\CustomColumn;
  */
 class CustomColumnIndexCountRule implements Rule
 {
+    /**
+     * @var CustomTable|null
+     */
     protected $custom_table;
+    /**
+     * @var mixed
+     */
     protected $custom_column_id;
 
+    /**
+     * @param mixed ...$parameters
+     */
     public function __construct(...$parameters)
     {
         $this->custom_table = CustomTable::getEloquent($parameters[0]);

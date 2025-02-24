@@ -50,6 +50,9 @@ class PluginTypeRule implements Rule
         return str_replace(':values', implode(exmtrans('common.separate_word'), $pluginTypes), trans('validation.in'));
     }
 
+    /**
+     * @return mixed
+     */
     protected function getPluginTypeDifinitions()
     {
         return collect(PluginType::keys())->map(function ($p) {

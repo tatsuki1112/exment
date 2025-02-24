@@ -10,8 +10,14 @@ use Illuminate\Contracts\Validation\Rule;
  */
 class NumberMinRule implements Rule
 {
+    /**
+     * @var mixed
+     */
     protected $min;
 
+    /**
+     * @param mixed $parameters
+     */
     public function __construct($parameters)
     {
         $this->min = $parameters;

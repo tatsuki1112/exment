@@ -47,6 +47,9 @@ class DiskServiceItem
     protected $disk;
 
 
+    /**
+     * @return array<mixed>|string|null
+     */
     public function fileNameNoExtension()
     {
         if (is_null($this->fileName)) {

@@ -12,8 +12,14 @@ use Exceedone\Exment\Model\PasswordHistory;
  */
 class PasswordHistoryRule implements Rule
 {
+    /**
+     * @var LoginUser|null
+     */
     protected $login_user;
 
+    /**
+     * @param LoginUser|null $login_user
+     */
     public function __construct(?LoginUser $login_user)
     {
         $this->login_user = $login_user;

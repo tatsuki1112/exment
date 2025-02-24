@@ -20,20 +20,29 @@ class ExmentCustomValidator extends AdminValidator
     /**
      * The appended messages.
      *
-     * @var array
+     * @var array<mixed>
      */
     protected $appendedMessages = [];
 
+    /**
+     * @return bool
+     */
     public function passes()
     {
         return parent::passes() && count($this->appendedMessages) == 0;
     }
 
+    /**
+     * @return bool
+     */
     public function fails()
     {
         return parent::fails() || count($this->appendedMessages) > 0;
     }
 
+    /**
+     * @return array<mixed>
+     */
     public function getMessages()
     {
         return array_merge($this->errors()->messages(), $this->appendedMessages);
@@ -42,7 +51,7 @@ class ExmentCustomValidator extends AdminValidator
     /**
      * Append messages
      *
-     * @param array $errors
+     * @param array<mixed> $errors
      * @return self
      */
     public function appendMessages(array $errors)
@@ -54,6 +63,9 @@ class ExmentCustomValidator extends AdminValidator
         return $this;
     }
 
+    /**
+     * @return array<mixed>
+     */
     public function getMessageStrings(): array
     {
         $messages = collect();
@@ -71,7 +83,7 @@ class ExmentCustomValidator extends AdminValidator
      *
      * @param string $attribute
      * @param mixed $value
-     * @param array $parameters
+     * @param array<mixed> $parameters
      * @return bool
      */
     public function validateUniqueInTable($attribute, $value, $parameters)
@@ -102,7 +114,7 @@ class ExmentCustomValidator extends AdminValidator
     *
     * @param string $attribute
     * @param mixed $value
-    * @param array $parameters
+    * @param array<mixed> $parameters
     * @return bool
     */
     public function validateSummaryCondition($attribute, $value, $parameters)
@@ -132,7 +144,7 @@ class ExmentCustomValidator extends AdminValidator
     *
     * @param string $attribute
     * @param mixed $value
-    * @param array $parameters
+    * @param array<mixed> $parameters
     * @return bool
     */
     public function validateLoopRelation($attribute, $value, $parameters)
@@ -160,6 +172,12 @@ class ExmentCustomValidator extends AdminValidator
 
     /**
      * check if exists custom relation.
+     * @param string $attr1
+     * @param string $attr2
+     * @param mixed $custom_table_id
+     * @param mixed $value
+     * @param mixed|null $relation_id
+     * @return bool
      */
     protected function HasRelation($attr1, $attr2, $custom_table_id, $value, $relation_id = null)
     {
@@ -184,6 +202,13 @@ class ExmentCustomValidator extends AdminValidator
         return true;
     }
 
+    /**
+     * @param mixed $message
+     * @param mixed $attribute
+     * @param mixed $rule
+     * @param mixed $parameters
+     * @return mixed
+     */
     protected function replaceChangeFieldValue($message, $attribute, $rule, $parameters)
     {
         if (count($parameters) > 0) {
@@ -197,7 +222,7 @@ class ExmentCustomValidator extends AdminValidator
     *
     * @param string $attribute
     * @param mixed $value
-    * @param array $parameters
+    * @param array<mixed> $parameters
     * @return bool
     */
     public function validateRegularExpression($attribute, $value, $parameters)

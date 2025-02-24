@@ -22,7 +22,7 @@ class CaptchaRule implements Rule
     /** @var  string|null */
     protected $version;
 
-    /** @var  array */
+    /** @var  array<mixed> */
     protected $skipIps = [];
 
     /* -----------------------------------------------------------------
@@ -65,7 +65,7 @@ class CaptchaRule implements Rule
     /**
      * Set the ips to skip.
      *
-     * @param  string|array  $ip
+     * @param  string|array<mixed>  $ip
      *
      * @return $this
      */

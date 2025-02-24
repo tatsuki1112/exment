@@ -10,6 +10,9 @@ use Illuminate\Contracts\Validation\Rule;
  */
 class PluginRequirementRule implements Rule
 {
+    /**
+     * @var array<mixed>
+     */
     protected $composers = [];
 
     public function __construct()

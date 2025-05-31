@@ -295,6 +295,7 @@ class CCustomViewTest extends ExmentKitTestCase
 
     /**
      * check custom view grid filters initialized default.
+     * @return void
      */
     public function testCheckDefaultGridFilter()
     {
@@ -344,6 +345,7 @@ class CCustomViewTest extends ExmentKitTestCase
 
     /**
      * Add custom view grid filters.
+     * @return void
      */
     public function testAddViewSuccessGridFilter()
     {
@@ -372,7 +374,7 @@ class CCustomViewTest extends ExmentKitTestCase
         ];
 
         $this->put(admin_url("view/exmenttest_view/{$id}"), $data);
-        
+
         $this->visit(admin_url("data/exmenttest_view?view={$suuid}"));
 
         $response = $this->get(admin_url("data/exmenttest_view?filter_ajax=1"));
@@ -394,6 +396,7 @@ class CCustomViewTest extends ExmentKitTestCase
 
     /**
      * Update custom view grid filters.
+     * @return void
      */
     public function testUpdateViewSuccessGridFilter()
     {
@@ -425,7 +428,7 @@ class CCustomViewTest extends ExmentKitTestCase
         ];
 
         $this->put(admin_url("view/exmenttest_view/{$id}"), $data);
-        
+
         $this->visit(admin_url("data/exmenttest_view?view={$suuid}"));
 
         $response = $this->get(admin_url("data/exmenttest_view?filter_ajax=1"));

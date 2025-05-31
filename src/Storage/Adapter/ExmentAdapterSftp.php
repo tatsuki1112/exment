@@ -12,6 +12,10 @@ class ExmentAdapterSftp extends SftpAdapter implements ExmentAdapterInterface
 
     /**
      * get adapter class
+     * @param mixed $app
+     * @param mixed $config
+     * @param mixed $driverKey
+     * @return self
      */
     public static function getAdapter($app, $config, $driverKey)
     {
@@ -26,6 +30,11 @@ class ExmentAdapterSftp extends SftpAdapter implements ExmentAdapterInterface
         return $driver;
     }
 
+    /**
+     * @param string $mergeFrom
+     * @param array<mixed> $options
+     * @return array<mixed>
+     */
     public static function getMergeConfigKeys(string $mergeFrom, array $options = []): array
     {
         return [
@@ -36,8 +45,8 @@ class ExmentAdapterSftp extends SftpAdapter implements ExmentAdapterInterface
     /**
      * Get config. Execute merge.
      *
-     * @param array $config
-     * @return array
+     * @param array<mixed> $config
+     * @return array<mixed>
      */
     public static function getConfig($config): array
     {

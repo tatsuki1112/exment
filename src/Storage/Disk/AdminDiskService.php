@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Storage;
  */
 class AdminDiskService extends DiskServiceBase
 {
+    /**
+     * @param mixed ...$args
+     *
+     * @return void
+     */
     public function __construct(...$args)
     {
         $now = \Carbon\Carbon::now()->format('YmdHisv');

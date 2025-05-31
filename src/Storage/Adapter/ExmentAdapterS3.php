@@ -20,8 +20,13 @@ class ExmentAdapterS3 extends AwsS3V3Adapter implements ExmentAdapterInterface
         'VersionId',
     ];
 
+
     /**
      * get adapter class
+     * @param mixed  $app
+     * @param mixed $config
+     * @param mixed $driverKey
+     * @return self
      */
     public static function getAdapter($app, $config, $driverKey)
     {
@@ -48,6 +53,11 @@ class ExmentAdapterS3 extends AwsS3V3Adapter implements ExmentAdapterInterface
         return new self($client, array_get($mergeConfig, 'bucket'));
     }
 
+    /**
+     * @param string $mergeFrom
+     * @param array<mixed> $options
+     * @return array<mixed>
+     */
     public static function getMergeConfigKeys(string $mergeFrom, array $options = []): array
     {
         return [
@@ -58,8 +68,8 @@ class ExmentAdapterS3 extends AwsS3V3Adapter implements ExmentAdapterInterface
     /**
      * Get config. Execute merge.
      *
-     * @param array $config
-     * @return array
+     * @param array<mixed> $config
+     * @return array<mixed>
      */
     public static function getConfig($config): array
     {

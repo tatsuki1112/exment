@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Storage;
 
 class BackupDiskService extends DiskServiceBase
 {
+    /**
+     * @param mixed ...$args
+     *
+     * @return void
+     */
     public function __construct(...$args)
     {
         $now = date('YmdHis');

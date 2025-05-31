@@ -919,7 +919,9 @@ class CustomViewSummaryTest extends UnitTestBase
 
     /**
      * FilterOption = Group(parent:user,order:2), Summary(integer/sum/child_table,order:1)
-     * bugfix: set order to child table column occurs exception. 
+     * bugfix: set order to child table column occurs exception.
+     *
+     * @return void
      */
     public function testFuncSummaryChildOrder()
     {
@@ -963,6 +965,7 @@ class CustomViewSummaryTest extends UnitTestBase
     /**
      * FilterOption = Group(parent:user,order:1), Summary(integer/sum/child_table)
      * check if user sort by id as number
+     * @return void
      */
     public function testFuncSummaryChildOrder2()
     {

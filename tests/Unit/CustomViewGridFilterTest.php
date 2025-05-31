@@ -21,6 +21,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = ID
+     * @return void
      */
     public function testFuncFilterId()
     {
@@ -34,6 +35,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = created_at
+     * @return void
      */
     public function testFuncFilterCreatedAt()
     {
@@ -52,6 +54,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = updated_at
+     * @return void
      */
     public function testFuncFilterUpdatedAt()
     {
@@ -69,6 +72,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = created_user_id
+     * @return void
      */
     public function testFuncFilterCreatedUser()
     {
@@ -82,6 +86,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = updated_user_id
+     * @return void
      */
     public function testFuncFilterUpdatedUser()
     {
@@ -95,6 +100,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = text
+     * @return void
      */
     public function testFuncFilterText()
     {
@@ -116,6 +122,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = url
+     * @return void
      */
     public function testFuncFilterUrl()
     {
@@ -137,6 +144,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = email
+     * @return void
      */
     public function testFuncFilterEmail()
     {
@@ -158,6 +166,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = integer
+     * @return void
      */
     public function testFuncFilterInteger()
     {
@@ -174,6 +183,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = decimal
+     * @return void
      */
     public function testFuncFilterDecimal()
     {
@@ -190,6 +200,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = currency
+     * @return void
      */
     public function testFuncFilterCurrency()
     {
@@ -206,6 +217,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = date
+     * @return void
      */
     public function testFuncFilterDate()
     {
@@ -229,6 +241,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = time
+     * @return void
      */
     public function testFuncFilterTime()
     {
@@ -252,6 +265,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = datetime
+     * @return void
      */
     public function testFuncFilterDateTime()
     {
@@ -275,6 +289,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = select
+     * @return void
      */
     public function testFuncFilterSelect()
     {
@@ -291,6 +306,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = select_table
+     * @return void
      */
     public function testFuncFilterSelectTable()
     {
@@ -307,6 +323,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = yesno
+     * @return void
      */
     public function testFuncFilterYesNo()
     {
@@ -323,6 +340,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = boolean
+     * @return void
      */
     public function testFuncFilterBoolean()
     {
@@ -339,6 +357,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = auto number
+     * @return void
      */
     public function testFuncFilterAutoNumber()
     {
@@ -355,6 +374,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = user
+     * @return void
      */
     public function testFuncFilterUser()
     {
@@ -371,6 +391,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = organization
+     * @return void
      */
     public function testFuncFilterOrganization()
     {
@@ -387,6 +408,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = select_multiple
+     * @return void
      */
     public function testFuncFilterSelectMulti()
     {
@@ -403,6 +425,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = select_valtext_multiple
+     * @return void
      */
     public function testFuncFilterSelectValMulti()
     {
@@ -419,6 +442,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = select_table_multiple
+     * @return void
      */
     public function testFuncFilterSelectTableMulti()
     {
@@ -435,6 +459,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = user_multiple
+     * @return void
      */
     public function testFuncFilterUserMulti()
     {
@@ -451,6 +476,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = organization_multiple
+     * @return void
      */
     public function testFuncFilterOrganizationMulti()
     {
@@ -467,6 +493,7 @@ class CustomViewGridFilterTest extends UnitTestBase
 
     /**
      * Grid Filter = file_multiple
+     * @return void
      */
     public function testFuncFilterFileMulti()
     {
@@ -482,7 +509,7 @@ class CustomViewGridFilterTest extends UnitTestBase
         $custom_value->setValue('file_multiple', [$file->path])->save();
 
         $file->saveCustomValue($custom_value->id, $custom_column, $custom_table);
-    
+
         $this->__testGridFilter([$db_column_name => 'test1'], function ($data) {
             $actual = array_get($data, 'value.file_multiple');
             return collect($actual)->contains(function($path) {
@@ -492,11 +519,20 @@ class CustomViewGridFilterTest extends UnitTestBase
         });
     }
 
+    /**
+     * @return void
+     */
     protected function init()
     {
         $this->initAllTest();
     }
 
+    /**
+     * @param array<mixed> $filters
+     * @param \Closure $testCallback
+     * @param int|null $count
+     * @return void
+     */
     protected function __testGridFilter(array $filters, \Closure $testCallback, ?int $count = null)
     {
         $this->init();
@@ -514,7 +550,7 @@ class CustomViewGridFilterTest extends UnitTestBase
         $list = $grid->applyFilter(false);
         if ($count) {
             $this->assertEquals($list->count(), $count);
-        } 
+        }
 
         foreach ($list as $data) {
             $matchResult = $testCallback($data);
@@ -524,6 +560,9 @@ class CustomViewGridFilterTest extends UnitTestBase
         }
     }
 
+    /**
+     * @return string
+     */
     protected function getJsonUpdateFunction(): string
     {
         if (\Exment::isSqlServer()) {

@@ -9,7 +9,7 @@ class ExmentAdapterLocal extends LocalFilesystemAdapter implements ExmentAdapter
     use AdapterTrait;
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
     protected static $permissions = [
         'file' => [
@@ -25,6 +25,10 @@ class ExmentAdapterLocal extends LocalFilesystemAdapter implements ExmentAdapter
 
     /**
      * get adapter class
+     * @param mixed $app
+     * @param mixed $config
+     * @param mixed $driverKey
+     * @return self
      */
     public static function getAdapter($app, $config, $driverKey)
     {
@@ -40,8 +44,8 @@ class ExmentAdapterLocal extends LocalFilesystemAdapter implements ExmentAdapter
     /**
      * Get config. Execute merge.
      *
-     * @param array $config
-     * @return array
+     * @param array<mixed> $config
+     * @return array<mixed>
      */
     public static function getConfig($config): array
     {
